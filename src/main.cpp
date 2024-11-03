@@ -1,5 +1,5 @@
 #include <raylib.h>
-#include "entity.h"
+#include "game.h"
 
 int main()
 {
@@ -12,17 +12,18 @@ int main()
     InitWindow(screenWidth, screenHeight, "My first RAYLIB program!");
     SetTargetFPS(60);
     
-    Entity entity;
-
+    //add game class
+    Game game;
     while (!WindowShouldClose())
     {
         BeginDrawing();
 
         //Update
-
+        game.Update();
         ClearBackground(GREEN);
         //Draw
-        entity.Draw();
+        game.Draw();
+        
 
         EndDrawing();
     }
