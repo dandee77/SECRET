@@ -1,11 +1,29 @@
-#include "player.h"
+#pragma once
+#include <memory>
+#include "Scene.h"
 
-class Game
-{
+class Game {
 public:
-    Game();
-    void Update();
-    void Draw();
+    Game() : currentScene(nullptr) {}
+    ~Game() = default;
+
+    void setScene(std::shared_ptr<Scene> scene) {
+        currentScene = std::move(scene);
+        currentScene->initialize(); // Call initialize on the new scene
+    }
+
+    void update(float deltaTime) {
+        if (currentScene) {
+            currentScene->update(deltaTime);  // Update the current scene
+        }
+    }
+
+    void draw() const {
+        if (currentScene) {
+            currentScene->draw();  // Draw the current scene
+        }
+    }
+
 private:
-    Player player;
+    std::shared_ptr<Scene> currentScene;
 };
