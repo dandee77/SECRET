@@ -22,12 +22,10 @@ public:
     StateMachine() = default;
     virtual ~StateMachine() = default;
 
-    // Registers a state with a unique ID and a factory function
     void registerState(int stateID, StateFactory factory) {
         stateFactories[stateID] = factory;
     }
 
-    // Switches to a new state using the state ID
     void changeState(int stateID, T* owner) {
         if (currentState) {
             currentState->onExit(owner);
@@ -42,14 +40,12 @@ public:
         }
     }
 
-    // Calls update on the current state if it exists
     void update(T* owner, float deltaTime) {
         if (currentState) {
             currentState->onUpdate(owner, deltaTime);
         }
     }
 
-    // Accessor for the current state ID
     int getCurrentStateID() const { return currentStateID; }
 
 protected:
