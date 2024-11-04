@@ -21,8 +21,8 @@ public:
     }
 
     void draw() const override {
-        ClearBackground(DARKGRAY); // Render dark gray background
-        DrawText("Press ENTER to Start Game", 200, 200, 20, RAYWHITE);
+        ClearBackground(DARKBLUE); // Render dark gray background
+        DrawText("Press [ENTER] to Start Game", 240, 200, 20, RAYWHITE);
     }
 
     // Callback to allow switching scenes

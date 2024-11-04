@@ -3,10 +3,10 @@
 
 Window::Window()
 {   
-    SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+    //SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(800, 450, "SECRET");
     SetTargetFPS(60);
-    SetExitKey(KEY_NULL);
+    //SetExitKey(KEY_NULL);
 
     camera = {0};
     camera.target = (Vector2){0, 0};
@@ -35,6 +35,7 @@ void Window::Run()
         BeginDrawing();
 
             ClearBackground(RAYWHITE);
+            DrawFPS(10, 10);
             game.draw();
 
         EndDrawing();

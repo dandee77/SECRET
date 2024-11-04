@@ -7,7 +7,9 @@ class GameScene : public Scene {
 public:
     void initialize() override {
         // Any initial setup for Game Scene could go here
-        entityManager.addEntity(1, {100, 100});
+        for (int i = 0; i < 500; i++) {
+            entityManager.addEntity(i, {(float)GetRandomValue(15, GetScreenWidth() - 15), (float)GetRandomValue(15, GetScreenHeight() - 15)});
+        }
     }
 
     void update(float deltaTime) override {
@@ -16,8 +18,8 @@ public:
     }
 
     void draw() const override {
-        ClearBackground(DARKBLUE); // Render dark blue background
-        DrawText("Game Scene", 200, 200, 20, RAYWHITE);
+        ClearBackground(DARKGRAY); // Render dark blue background
+        DrawText("Press [BACKSPACE] to kill one random ball", 175, 200, 20, RAYWHITE);
         entityManager.drawEntities();
     }
     
