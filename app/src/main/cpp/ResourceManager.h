@@ -1,0 +1,8 @@
+//
+// Created by dande on 11/6/2024.
+//
+
+#ifndef RAYMOB_RESOURCEMANAGER_H
+#define RAYMOB_RESOURCEMANAGER_H
+
+#endif //RAYMOB_RESOURCEMANAGER_H
